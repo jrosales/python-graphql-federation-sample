@@ -2,6 +2,8 @@ from ariadne import graphql_sync
 from ariadne.constants import PLAYGROUND_HTML
 from flask import Flask, request, jsonify
 
+import sys
+
 from schema.schema import SchemaCreator
 
 schemaCreator = SchemaCreator()
@@ -16,7 +18,9 @@ def graphql_playgroud():
 @app.route("/", methods=["POST"])
 def graphql_server():
     data = request.get_json()
-    print(data)
+    print("Host Name ", request.headers, file=sys.stdout)
+    print("Host Content Length ", request.content_length, file=sys.stdout)
+    print("POST ", data, file=sys.stdout)
     success, result = graphql_sync(
         schema,
         data,
@@ -25,8 +29,8 @@ def graphql_server():
     )
 
     status_code = 200 if success else 400
-    print(jsonify(result))
+    print("RESULT ", jsonify(result), file=sys.stdout, flush=True)
     return jsonify(result), status_code
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=8301)
+    app.run(debug=True, host="0.0.0.0", port=8305)

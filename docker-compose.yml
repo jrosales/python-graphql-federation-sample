@@ -34,11 +34,47 @@ services:
         target: /code
     environment:
       - FLASK_ENV=development
+  graphql_server_py_fhir:
+    container_name: graphql_server_py_fhir
+    build: graphql_server_py_fhir/
+    ports:
+      - "8305:8305"
+    volumes:
+      - type: bind
+        source: ./graphql_server_py_fhir
+        target: /code
+    environment:
+      - FLASK_ENV=development
+  graphql_server_fhir:
+    container_name: graphql_server_fhir
+    build: graphql_server_fhir/
+    ports:
+      - "8303:8303"
+    volumes:
+      - type: bind
+        source: ./graphql_server_fhir
+        target: /code
+    environment:
+      - NODE_ENV=test
+      - PORT=8303
+  graphql_federation_server:
+    container_name: graphql_federation_server
+    build: graphql_federation_server/
+    ports:
+      - "8304:8304"
+    volumes:
+      - type: bind
+        source: ./graphql_federation_server
+        target: /code
+    environment:
+      - NODE_URL=localhost:8304
+      - PORT=8304
   federated_gateway:
     depends_on:
      - graphql_server_user
      - graphql_server_photo
      - graphql_server_review
+     - graphql_server_py_fhir
     image: xmorse/apollo-federation-gateway
     ports:
       - "4000:80"
@@ -46,3 +82,6 @@ services:
       URL_0: "http://graphql_server_user:8300"
       URL_1: "http://graphql_server_photo:8301"
       URL_2: "http://graphql_server_review:8302"
+      # URL_3: "http://graphql_server_fhir:8303/4_0_0/$graphql"
+      URL_4: "http://graphql_server_py_fhir:8305"
+      DEBUG: "True"
