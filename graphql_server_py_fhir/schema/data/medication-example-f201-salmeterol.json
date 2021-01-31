@@ -1,0 +1,1 @@
+{"resourceType":"Medication","name":"Salmeterol/fluticason","code":{"coding":[{"system":"http://snomed.info/id","code":"411106009","display":"Flutacisone + Salmeterol"}]},"isBrand":false,"kind":"product","product":{"form":{"coding":[{"system":"http://snomed.info/id","code":"421606006","display":"Aerosol spray"}]}}}

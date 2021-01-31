@@ -1,0 +1,1 @@
+{"resourceType":"Medication","name":"Metoprolol","code":{"coding":[{"system":"http://snomed.info/id","code":"318475005","display":"Metoprolol tartrate 50mg tablet"}]},"isBrand":true,"kind":"product","package":{"container":{"coding":[{"system":"http://snomed.info/id","code":"398124009","display":"drug container"}]}}}

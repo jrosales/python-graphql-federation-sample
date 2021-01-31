@@ -1,0 +1,151 @@
+{"resourceType": "Profile", "text": {
+    "status": "generated",
+    "div": "<div><div>Type definition for Identifier from <a href=\"http://hl7.org/fhir/datatypes.html#Identifier\">FHIR Specification</a></div></div>"
+}, "name": "Basic Profile for Identifier", "publisher": "FHIR Specification", "description": "Basic Profile for Identifier for validation support", "status": "draft", "date": "2013-12-01", "mapping": [
+    {
+        "identity": "rim",
+        "uri": "http://hl7.org/v3",
+        "name": "RIM"
+    }
+], "structure": [
+    {
+        "type": "Identifier",
+        "element": [
+            {
+                "path": "Identifier",
+                "definition": {
+                    "short": "An identifier intended for computation",
+                    "formal": "A technical identifier - identifies some entity uniquely and unambiguously.",
+                    "comments": "the Identifier class is a little looser than II because it allows URIs as well as registered OIDs or GUIDs.",
+                    "min": "1",
+                    "max": "1",
+                    "type": [
+                        {
+                            "code": "Type"
+                        }
+                    ],
+                    "isModifier": false,
+                    "mapping": [
+                        {
+                            "identity": "rim",
+                            "map": "II"
+                        }
+                    ]
+                }
+            },
+            {
+                "path": "Identifier.use",
+                "definition": {
+                    "short": "usual | official | temp | secondary (If known)",
+                    "formal": "The use of this identifier.",
+                    "comments": "This is labeled as \"Is Modifier\" because applications should not mistake a temporary id for a permanent one. Applications can assume that an identifier is not temporary unless it explicitly says that it is.",
+                    "min": "0",
+                    "max": "1",
+                    "type": [
+                        {
+                            "code": "code"
+                        }
+                    ],
+                    "isModifier": true,
+                    "binding": {
+                        "name": "IdentifierUse",
+                        "isExtensible": false,
+                        "conformance": "required",
+                        "referenceResource": {
+                            "reference": "http://hl7.org/fhir/vs/identifier-use"
+                        }
+                    }
+                }
+            },
+            {
+                "path": "Identifier.label",
+                "definition": {
+                    "short": "Description of identifier",
+                    "formal": "A label for the identifier that can be displayed to a human so they can recognize the identifier.",
+                    "min": "0",
+                    "max": "1",
+                    "type": [
+                        {
+                            "code": "string"
+                        }
+                    ],
+                    "isModifier": false
+                }
+            },
+            {
+                "path": "Identifier.system",
+                "definition": {
+                    "short": "The namespace for the identifier",
+                    "formal": "Establishes the namespace in which set of possible id values is unique.",
+                    "min": "0",
+                    "max": "1",
+                    "type": [
+                        {
+                            "code": "uri"
+                        }
+                    ],
+                    "isModifier": false,
+                    "mapping": [
+                        {
+                            "identity": "rim",
+                            "map": "II.root"
+                        }
+                    ]
+                }
+            },
+            {
+                "path": "Identifier.value",
+                "definition": {
+                    "short": "The value that is unique",
+                    "formal": "The portion of the identifier typically displayed to the user and which is unique within the context of the system.",
+                    "comments": "if the value is actually a full uri, then the system SHALL be urn:ietf:rfc:3986.",
+                    "min": "0",
+                    "max": "1",
+                    "type": [
+                        {
+                            "code": "string"
+                        }
+                    ],
+                    "isModifier": false,
+                    "mapping": [
+                        {
+                            "identity": "rim",
+                            "map": "II.extension or II.root if system indicates OID or GUID"
+                        }
+                    ]
+                }
+            },
+            {
+                "path": "Identifier.period",
+                "definition": {
+                    "short": "Time period when id was valid for use",
+                    "formal": "Time period during which identifier was valid for use.",
+                    "min": "0",
+                    "max": "1",
+                    "type": [
+                        {
+                            "code": "Period"
+                        }
+                    ],
+                    "isModifier": false
+                }
+            },
+            {
+                "path": "Identifier.assigner",
+                "definition": {
+                    "short": "Organization that issued id (may be just text)",
+                    "formal": "Organization that issued/manages the identifier.",
+                    "comments": "The reference may be just a text description of the assigner.",
+                    "min": "0",
+                    "max": "1",
+                    "type": [
+                        {
+                            "code": "Resource(Organization)"
+                        }
+                    ],
+                    "isModifier": false
+                }
+            }
+        ]
+    }
+]}

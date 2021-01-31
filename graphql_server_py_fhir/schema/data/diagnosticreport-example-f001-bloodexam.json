@@ -1,0 +1,91 @@
+{"resourceType": "DiagnosticReport", "status": "final", "issued": "2013-05-15T19:32:52+01:00", "subject": {
+    "reference": "Patient/f001",
+    "display": "P. van den Heuvel"
+}, "performer": {
+    "reference": "Organization/f001",
+    "display": "Burgers University Medical Centre"
+}, "reportId": {
+    "use": "official",
+    "system": "http://www.bmc.nl/zorgportal/identifiers/reports",
+    "value": "nr1239044"
+}, "requestDetail": [
+    {
+        "encounter": {
+            "reference": "Encounter/f001"
+        },
+        "requestOrderId": {
+            "use": "official",
+            "system": "http://www.bmc.nl/zorgportal/identifiers/labresults",
+            "value": "L2381"
+        },
+        "receiverOrderId": {
+            "use": "official",
+            "system": "http://www.bmc.nl/zorgportal/identifiers/diagnostics",
+            "value": "D2838"
+        },
+        "requestTest": [
+            {
+                "coding": [
+                    {
+                        "system": "http://loinc.org",
+                        "code": "19071-0",
+                        "display": "Blood removed from patient"
+                    }
+                ]
+            }
+        ],
+        "bodySite": {
+            "coding": [
+                {
+                    "system": "http://snomed.info/id",
+                    "code": "14975008",
+                    "display": "Forearm structure"
+                }
+            ]
+        },
+        "requester": {
+            "reference": "Practitioner/f001",
+            "display": "E.van den Broek"
+        },
+        "clinicalInfo": "patient almost fainted during procedure"
+    }
+], "serviceCategory": {
+    "coding": [
+        {
+            "system": "http://snomed.info/id",
+            "code": "252275004",
+            "display": "Haematology test"
+        },
+        {
+            "system": "http://hl7.org/fhir/v2/0074",
+            "code": "HM"
+        }
+    ]
+}, "diagnosticDateTime": "2013-04-02", "results": {
+    "name": {
+        "coding": [
+            {
+                "system": "http://loinc.org",
+                "code": "15430-2",
+                "display": "FULL BLOOD EXAMINATION"
+            }
+        ]
+    },
+    "result": [
+        {
+            "reference": "Observation/f001"
+        },
+        {
+            "reference": "Observation/f002"
+        },
+        {
+            "reference": "Observation/f003"
+        },
+        {
+            "reference": "Observation/f004"
+        },
+        {
+            "reference": "Observation/f005"
+        }
+    ]
+}, "conclusion": "Core lab"}

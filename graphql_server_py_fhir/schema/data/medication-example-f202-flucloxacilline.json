@@ -1,0 +1,1 @@
+{"resourceType":"Medication","name":"Flucloxacillin","code":{"coding":[{"system":"http://snomed.info/id","code":"387544009","display":"Flucloxacillin"}]},"isBrand":false,"kind":"product","product":{"form":{"coding":[{"system":"http://snomed.info/id","code":"385218009","display":"Injection"}]}}}
